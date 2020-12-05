@@ -1,4 +1,6 @@
 import { Box, Text, Flex, Link, Image } from '@chakra-ui/react';
+import { Link as rrdLink } from 'react-router-dom';
+
 import Container from '../container';
 
 const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
@@ -16,7 +18,8 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
       <Container>
         <Flex mb="3rem" justify="space-between" align="center" mt={6}>
           <Link
-            href="#!"
+            as={rrdLink}
+            to="/"
             _hover={{ textDecoration: 'none' }}
             position="relative"
           >
@@ -59,8 +62,9 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
           height="60vh"
         >
           <Link
-            color="Black"
-            href="/listings"
+            color="gray.500"
+            as={rrdLink}
+            to="/listings"
             _hover={{ textDecoration: 'none' }}
           >
             <Text
@@ -84,7 +88,8 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
           </Link>
           <Link
             color="gray.500"
-            href="/how-it-works"
+            as={rrdLink}
+            to="/how-it-works"
             _hover={{ textDecoration: 'none' }}
           >
             <Text
@@ -96,7 +101,8 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
           </Link>
           <Link
             color="gray.500"
-            href="/contact"
+            as={rrdLink}
+            to="/contact"
             _hover={{ textDecoration: 'none' }}
           >
             <Text
@@ -108,7 +114,8 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
           </Link>
           <Link
             color="gray.500"
-            href="/faq"
+            as={rrdLink}
+            to="/faq"
             _hover={{ textDecoration: 'none' }}
           >
             <Text
@@ -120,7 +127,8 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
           </Link>
           <Link
             color="gray.500"
-            href="/blog"
+            as={rrdLink}
+            to="/blog"
             _hover={{ textDecoration: 'none' }}
           >
             <Text

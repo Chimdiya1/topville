@@ -59,7 +59,7 @@ const Listings = ({ match, history }) => {
                 backgroundPosition="center"
                 backgroundRepeat="no-repeat"
                 backgroundSize="cover"
-                height='90vh'
+                height='100vh'
                 align='center'
                 justify='center'
                 direction='column'
