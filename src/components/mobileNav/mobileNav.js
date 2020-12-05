@@ -18,6 +18,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
       <Container>
         <Flex mb="3rem" justify="space-between" align="center" mt={6}>
           <Link
+            onClick={removeNavbarHandler}
             as={rrdLink}
             to="/"
             _hover={{ textDecoration: 'none' }}
@@ -62,6 +63,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
           height="60vh"
         >
           <Link
+            onClick={removeNavbarHandler}
             color="gray.500"
             as={rrdLink}
             to="/listings"
@@ -75,8 +77,10 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
             </Text>
           </Link>
           <Link
+            onClick={removeNavbarHandler}
             color="gray.500"
-            href="/about"
+            as={rrdLink}
+            to="/about"
             _hover={{ textDecoration: 'none' }}
           >
             <Text
@@ -87,6 +91,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
             </Text>
           </Link>
           <Link
+            onClick={removeNavbarHandler}
             color="gray.500"
             as={rrdLink}
             to="/how-it-works"
@@ -100,6 +105,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
             </Text>
           </Link>
           <Link
+            onClick={removeNavbarHandler}
             color="gray.500"
             as={rrdLink}
             to="/contact"
@@ -113,6 +119,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
             </Text>
           </Link>
           <Link
+            onClick={removeNavbarHandler}
             color="gray.500"
             as={rrdLink}
             to="/faq"
@@ -126,6 +133,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
             </Text>
           </Link>
           <Link
+            onClick={removeNavbarHandler}
             color="gray.500"
             as={rrdLink}
             to="/blog"
