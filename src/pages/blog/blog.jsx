@@ -7,24 +7,42 @@ import {
 } from "@chakra-ui/react"
 import BlogCard from '../../components/blogCard/blogCard'
 import dollar from '../../assets/home.jpg'
+import { useSelector } from 'react-redux'
+import { withRouter } from 'react-router-dom';
 
 let text = 'Some vague text about how using our service helps people and some other stuff. TBH this is just to fill up space, content would come much later Some vague text about how using our service helps people and some other stuff. TBH this is just to fill up space, content would come much later  Some vague text about how using our service helps people and some other stuff. TBH this is just to fill up space, content would come much later'
 
-const Blog = () => {
+const Blog = ({ match, history }) => {
+    const currentBlogs = useSelector(state => state.blogs.blogs)
+    console.log('===>',currentBlogs)
     return ( 
         <Box bg='gray.100' >
             <Hero text="Blog" /> 
-            <SimpleGrid minChildWidth= "300px" paddingY='50px' spacing="40px" m='auto' justifyContent='space-between' width={['90%','80%',null ]}>
-                <BlogCard img={dollar} text={text} heading='Affordable'/>
-                <BlogCard img={dollar} text={text} heading='Affordable'/>
-                <BlogCard img={dollar} text={text} heading='Affordable'/>
-                <BlogCard img={dollar} text={text} heading='Affordable'/>
-                <BlogCard img={dollar} text={text} heading='Affordable'/>
-                <BlogCard img={dollar} text={text} heading='Affordable'/>                
+            <SimpleGrid minChildWidth="300px" paddingY='50px' spacing="40px" m='auto' justifyContent='space-between' width={['90%', '80%', null]}>
+                {
+                    currentBlogs.map(({ id, image, content, date, title }) => (
+                        <div
+                            className="link"
+                            key={id}
+                            onClick={() => history.push(`${match.path}/${id}`)}
+                        >                            
+                            <BlogCard date={date} img={image} text={content} heading={title}/>
+                        </div>
+                    ))
+                }              
             </SimpleGrid>
             
         </Box>
      );
 }
  
-export default Blog;
+export default withRouter(Blog);
+
+
+{/* <div
+                                            className="link"
+                                            key={listing.id}
+                                            onClick={() => history.push(`${match.path}/${listing.id}`)}
+                                        >
+                                            <ListingCard listing={listing} />
+                                        </div> */}

@@ -49,7 +49,7 @@ const Home = () => {
                 <Heading as="h3" fontWeight='400' letterSpacing='wide' textAlign='center' fontSize={["2xl", "null", "3xl", "4xl"]} color="white" >
                     Best Homes & Properties
                 </Heading>
-                <Text textAlign='center' my={25} color='silver' fontSize="lg">Some vague text about how using our service helps people and some other stuff.</Text>
+                <Text textAlign='center' my={25} color='silver' fontSize="lg">Let’s help you get your money’s worth</Text>
                 <Link as={rrdLink} to='/listings'>
                     <Button
                         backgroundColor='brand.primary'
@@ -78,7 +78,7 @@ const Home = () => {
                 <Heading as="h3" fontWeight='400' letterSpacing='wide' textAlign='center' fontSize={["2xl", "null", "3xl", "4xl"]} color="white" >
                     Ask our top consultants for a personalized offer today.
                 </Heading>
-                <a href="tel:09023894892">
+                <a href="tel:09134931040">
                     <Button
                         backgroundColor='transparent'
                         border='5px solid white'
@@ -91,7 +91,7 @@ const Home = () => {
                         size='lg'
                         _hover={{ bg: "white",color:'black' }}
                     >
-                        CALL 08033989758
+                        CALL 09134931040
                     </Button>
                 </a>
             </Flex>

@@ -21,7 +21,7 @@ const Header = () => {
 		setMobileNavOpen(true);
 	};
 	return (
-		<Box position="relative" zIndex={3}>
+		<Box position="relative" zIndex={10}>
 			<Container position="absolute">
 				<Flex
 					py="1.5rem"
@@ -64,7 +64,7 @@ const Header = () => {
 								Listings
 							</Text>
 						</Link>
-						<Link
+						{/* <Link
 							color="gray.400"
 							as={rrdLink}
                             to='/about'
@@ -76,7 +76,7 @@ const Header = () => {
 							>
 								About
 							</Text>
-						</Link>
+						</Link> */}
 						<Link
                             color="gray.400"
                             as={rrdLink}
@@ -103,7 +103,7 @@ const Header = () => {
 								Contact
 							</Text>
 						</Link>
-						<Link
+						{/* <Link
 							color="gray.400"
 							as={rrdLink}
                             to='/faq'
@@ -115,7 +115,7 @@ const Header = () => {
 							>
 								FAQ
 							</Text>
-						</Link>
+						</Link> */}
 						<Link
 							color="gray.400"
 							as={rrdLink}

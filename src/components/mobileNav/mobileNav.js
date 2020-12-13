@@ -76,7 +76,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
               Listings
             </Text>
           </Link>
-          <Link
+          {/* <Link
             onClick={removeNavbarHandler}
             color="gray.500"
             as={rrdLink}
@@ -89,7 +89,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
             >
               About
             </Text>
-          </Link>
+          </Link> */}
           <Link
             onClick={removeNavbarHandler}
             color="gray.500"
@@ -118,7 +118,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
               Contact
             </Text>
           </Link>
-          <Link
+          {/* <Link
             onClick={removeNavbarHandler}
             color="gray.500"
             as={rrdLink}
@@ -131,7 +131,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
             >
               FAQ
             </Text>
-          </Link>
+          </Link> */}
           <Link
             onClick={removeNavbarHandler}
             color="gray.500"

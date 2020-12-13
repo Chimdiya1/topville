@@ -1,7 +1,8 @@
 import React from 'react';
 import {
     Flex,
-    Box,
+  Box,
+    Spinner,
     SimpleGrid,
     Heading,
     Divider,
@@ -37,20 +38,25 @@ const ListingPage = ({ match, history }) => {
         cars,
         location,
         address,
-        video,
+        videoLink,
         description
     } = item[0] || {}
 
-    const images2 = images?  images.map((img) => ({
+    const images2 = images ? images.map((img) => ({
       original:img
     })) : []
   if (item.length===0)  {
-    return <Skeleton/>
+    return (
+      <Flex  flexDir='column'>
+        <Box height='80px' w='100%' backgroundColor='black' />
+        <Flex height='300px' alignItems='center' justifyContent='center'>
+          <Spinner />
+        </Flex>
+      </Flex>
+    )
   }
   return (
     <Flex flexDir='column'>
-
-    
       <Box height='80px' w='100%' backgroundColor='black'/>
     <Flex width={['100%', null, '80%', null, '60%']} flexDir='column' mx='auto' alignItems='center' >
       <Skeleton isLoaded={images?true:false}>
@@ -108,15 +114,17 @@ const ListingPage = ({ match, history }) => {
         </Flex>
       </Flex>
       <Divider />
-      <Flex paddingX={['20px', null, '0px']} flexDir='column' mt='24px'>
+      <Flex paddingX={['20px', null, '0px']} w='100%' flexDir='column' mt='24px'>
         <Heading mb='24px' as='h4' fontSize={['18px','20px',null,'24px']} color='brand.secondary'>Description</Heading>
         <Text lineHeight='32px' color='gray.600'>{description}</Text>
       </Flex>
       <Flex paddingX={['20px',null,'0px']} my='24px' w='100%' alignItems='flex-start'>
-        <Button colorScheme='green' mr='16px'>
-          Watch Tour Here
-        </Button>
-        <Button colorScheme='green' variant='outline'>
+        <a href={videoLink}>
+          <Button colorScheme='green' mr='16px'>
+            Watch Tour Here
+          </Button>    
+        </a>
+        <Button as={Link} to='/listings' colorScheme='green' variant='outline'>
           View More Listings
         </Button>
       </Flex>

@@ -15,29 +15,6 @@ import Search from '../../components/search/search'
 import Pagination from '../../components/pagination/pagination.component'
 
 
-
-
-let listingData = {
-    id: Math.floor(Math.random() * 100),
-    img: dollar,
-    title: 'Self Contained Appartment',
-    price: '100000',
-    type: 'Buy',
-    bedrooms:1,
-    bathrooms:2,
-    cars: 1,
-    location:'Hilltop'
-}
-
-// let currentListings = [
-//    listingData,
-//    listingData,
-//    listingData,
-//    listingData,
-//    listingData,
-//    listingData,
-// ]
-
 const Listings = ({ match, history }) => {
 
     const [currentPage, setCurrentPage] = useState(1)

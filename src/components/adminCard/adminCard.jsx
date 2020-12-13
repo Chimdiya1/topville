@@ -1,26 +1,43 @@
 import React from 'react';
 import {
     Flex,
-    Image,
-    Text,
-    Heading,
     Badge,
-    Box
+    Box,
+    useToast,
+    Button
     
 } from "@chakra-ui/react"
-
+import { firestore,storage } from '../../firebase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarker } from '@fortawesome/free-solid-svg-icons'
-import listings from '../../sampleData';
 
 function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
   }
-const ListingCard = ({listing}) => {
-    console.log(listing)
+const AdminCard = ({ listing }) => {
+    const toast = useToast()
+    const deleteDocument = (doc,images) => {
+        firestore.collection("listings").doc(doc).delete().then(function () {
+            toast({
+                title: "Deleted",
+                description: "Listing deleted successfully",
+                status: "success",
+                duration: 9000,
+                isClosable: true,
+            })
+        }).catch(function (error) {
+            toast({
+                title: "An error has occured",
+                description: "Please try again",
+                status: "error",
+                duration: 9000,
+                isClosable: true,
+            })
+        })
+        images.forEach((img) => storage.refFromURL(img).delete())
+    };
     return ( 
-        <a href="">
-            <Flex _hover={{ bg: "gray.300", transform: 'scale(0.95)' }} transition='all ease-in-out 0.3s' flexDir='column' alignItems='flex-start' justifyContent='space-between' bg="white" m='auto' w={['280px', '300px']} height="auto" >
+            <Flex _hover={{ bg: "gray.300", transform: 'scale(0.95)' }} transition='all ease-in-out 0.3s' flexDir='column' alignItems='flex-start' justifyContent='space-between' bg="gray.100" m='auto' w={['280px', '300px']} height="auto" >
                 <div className="list-item_image"
                     style={{
                         backgroundImage: `url(${listing.images[0]})`,
@@ -32,7 +49,6 @@ const ListingCard = ({listing}) => {
                     }}>
                     
                 </div>
-                {/* <Image maxH='200px' src={listing.images[0]} alt='losting-image' /> */}
                 <Box p="6">
                     <Flex mb='2'>
                         <Badge borderRadius="full" px="2" colorScheme="green">
@@ -48,7 +64,6 @@ const ListingCard = ({listing}) => {
                         >
                             {listing.bedrooms} beds &bull; {listing.bathrooms} baths &bull; {listing.cars} cars
                         </Box>
-
                     </Flex>
                     <Box
                         mb='3px'
@@ -59,7 +74,6 @@ const ListingCard = ({listing}) => {
                     >
                         {listing.title}
                     </Box>
-
                     <Box
                         fontSize='18px'
                         mb='3px'
@@ -71,12 +85,11 @@ const ListingCard = ({listing}) => {
                         <FontAwesomeIcon style={{marginRight:'5px'}} color="green" icon={faMapMarker} /> {listing.location}
                     </Box>
                 </Box>
-                {/* <Text m='20px' my='0px' fontSize='12px' textAlign='left' color='gray.500'> 6th Of december 2020</Text>
-                <Text m='20px' noOfLines={4}  fontSize='14px' textAlign='left' color='gray.700'>{ text }</Text> */}
-            </Flex>
-        </a>
-               
+                <Button onClick={()=>deleteDocument(listing.id,listing.images)} mx='auto' alignSelf='center' colorScheme='red'>
+                    Delete
+                </Button>
+            </Flex>               
      );
 }
  
-export default ListingCard;
+export default AdminCard;

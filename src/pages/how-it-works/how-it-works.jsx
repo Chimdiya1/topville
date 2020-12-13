@@ -22,32 +22,32 @@ const HowItWorks = () => {
                 <Flex mb='50px' flexDir={['column-reverse', null, 'row']} alignItems='center' justifyContent='space-between' width={['100%','80%','60%',null ]}>
                     <WorksCard
                         heading='Search'
-                        text={text}
+                        text='Navigate through our listings for properties available for sale/lease in your location.'
                         buttonText='View Our Listings'
+                        address={'/listings'}
                     />                    
                     <Image w={['250px','300px',null,null, '350px']} src={search} alt='search'/>
                 </Flex>
                 <Flex mb='50px' flexDir={['column-reverse', null, 'row-reverse']} alignItems='center' justifyContent='space-between' width={['100%','80%','60%',null ]}>
                     <WorksCard
                         heading='Contact Us'
-                        text={text}
+                        text=' Contact our experienced  agent who will guide you every step of the way.'
                         buttonText='Contact'
+                        address={'/contact'}
                     />                    
                     <Image w={['250px','300px',null,null, '350px']} src={contact} alt='contact'/>
                 </Flex>
                 <Flex mb='50px' flexDir={['column-reverse', null, 'row']} alignItems='center' justifyContent='space-between' width={['100%','80%','60%',null ]}>
                     <WorksCard
                         heading='Inspect'
-                        text={text}
-                        buttonText='Contact'
+                        text='TopVille assigned agent will organize an open-house tour of the property for you to get a clearer picture of what you’re paying for.'
                     />                    
                     <Image w={['250px','300px',null,null, '350px']} src={inspect} alt='inspect'/>
                 </Flex>
                 <Flex mb='50px' flexDir={['column-reverse', null, 'row-reverse']} alignItems='center' justifyContent='space-between' width={['100%','80%','60%',null ]}>
                     <WorksCard
                         heading='Make Payment'
-                        text={text}
-                        buttonText='Contact'
+                        text="If satisfied with the house,then proceed to make payment through the appropriate channels."
                     />                    
                     <Image w={['250px','300px',null,null, '350px']} src={pay} alt='pay'/>
                 </Flex>
