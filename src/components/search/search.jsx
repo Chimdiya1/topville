@@ -149,7 +149,7 @@ const Search = (props) => {
                                 <Select bg="white"
                                     borderColor="white"
                                     color="black"  placeholder="Minimum" onChange={event => setMinimum(event.currentTarget.value)}>
-                                        <option value="">No Minimum</option>
+                                        <option value="0">No Minimum</option>
                                         <option value="50000">&#8358; 50,000</option>
                                         <option value="100000">&#8358; 100,000</option>
                                         <option value="200000">&#8358; 200,000</option>
@@ -172,7 +172,7 @@ const Search = (props) => {
                                 <Select bg="white"
                                     borderColor="white"
                                     color="black" placeholder="Maximum" onChange={event => setMaximum(event.currentTarget.value)}>
-                                    <option value="">No max</option>
+                                    <option value="1000000000000">No max</option>
                                     <option value="50000">&#8358; 50,000</option>
                                     <option value="100000">&#8358; 100,000</option>
                                     <option value="200000">&#8358; 200,000</option>

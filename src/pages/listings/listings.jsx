@@ -30,7 +30,7 @@ const Listings = ({ match, history }) => {
     const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
     return ( 
-        <Box bg='gray.200' >
+        <Box bg='gray.200' paddingBottom='1rem'>
             <Flex
                 background= "linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/assets/home.jpg')"
                 backgroundPosition="center"
@@ -49,15 +49,11 @@ const Listings = ({ match, history }) => {
             </Heading>
             {
                 currentListings.length === 0 ? 
-                 (<Spinner
-                    thickness="4px"
-                    speed="0.65s"
-                    emptyColor="gray.200"
-                    color="blue.500"
-                    size="xl"
-                    mt='50px'
-                    mx='auto'
-                    />) : (
+                 (<Flex  flexDir='column'>
+                    <Flex height='300px' alignItems='center' justifyContent='center'>
+                        <Spinner />
+                    </Flex>
+                </Flex>) : (
                         <SimpleGrid minChildWidth="300px" paddingY='50px' spacing="40px" m='auto' justifyContent='space-between' width={['90%', '80%', null]}>
                             {
                                 
@@ -76,13 +72,11 @@ const Listings = ({ match, history }) => {
                         </SimpleGrid>
                     )
                 }
-                {/* <Pagination
+                <Pagination
                     postsPerPage={postsPerPage}
                     totalPosts={currentListings.length}
                     paginate={paginate}
-                /> */}
-            
-            
+                />                        
         </Box>
      );
 }

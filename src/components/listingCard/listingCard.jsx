@@ -35,7 +35,7 @@ const ListingCard = ({listing}) => {
                 {/* <Image maxH='200px' src={listing.images[0]} alt='losting-image' /> */}
                 <Box p="6">
                     <Flex mb='2'>
-                        <Badge borderRadius="full" px="2" colorScheme="green">
+                        <Badge d='flex' alignItems='center' justifyContent='center' borderRadius="full" px="2" colorScheme="green">
                             {listing.purpose}
                         </Badge>
                         <Box

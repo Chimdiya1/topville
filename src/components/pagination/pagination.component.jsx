@@ -1,5 +1,12 @@
 import React, { useState } from 'react'
-// import './pagination.styles.scss'
+import {
+    Flex,
+    Box,
+    SimpleGrid,
+    Heading,
+    Text,
+    Spinner
+} from "@chakra-ui/react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 
@@ -21,21 +28,30 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
         }
     }
     return (
-        <div className='pagination'>
-            <FontAwesomeIcon className='page-icon' onClick={() => move('prev')} icon={faAngleLeft} />
+        <Flex marginX='auto' fontSize='40px' alignItems='center' width='100%' justifyContent='center'>
+            <FontAwesomeIcon  color='#48BB78' className='page-icon' onClick={() => move('prev')} icon={faAngleLeft} />
             {
                 pageNumbers.map((number) => (
-                    <p key={number}
+                    <Flex key={number}
+                        fontSize='1rem'
+                        marginX='.7rem'
+                        w='30px'
+                        h='30px'
+                        alignItems='center'
+                        justifyContent='center'
+                        bgColor='brand.primary'
+                        color='white'
+                        borderRadius='5px'
                         onClick={() => {
                             paginate(number)
                             setcurr(number)
                         }} className={`page-link ${curr === number?  'curr' : ''}`}>
                         {number}
-                    </p>
+                    </Flex>
                 ))
             }
-            <FontAwesomeIcon className='page-icon' onClick={() => move('next')} icon={faAngleRight} />
-        </div>
+            <FontAwesomeIcon fontSize='1.7rem' color='#48BB78' className='page-icon' onClick={() => move('next')} icon={faAngleRight} />
+        </Flex>
     )
 }
 
