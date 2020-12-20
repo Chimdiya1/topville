@@ -102,8 +102,9 @@ const Search = (props) => {
         setIsLoading(false);
     };
     return ( 
-        <Box  w="80%" bgColor='black' >
-            <Flex p={['20px','30px',null,null,'50px']} flexDir={['column',null,'row']} justifyContent="space-between">
+        <Box w="80%" bgColor='black' mt='70px' >
+            <Heading fontSize={['1.2rem',null,'1.5rem']} my={['1rem',null,'1.4rem']} as='h5' textAlign='center' color='white'>Search for a property</Heading>
+            <Flex px={['20px','30px',null,null,'50px']} flexDir={['column',null,'row']} justifyContent="space-between">
                 <Box flex='1' marginRight={['0px', null, '20px']}>
                     <form  onSubmit={handleSubmit} >
                         <FormControl mt={['10px',null,'24px']} width='100%' > 
@@ -187,6 +188,10 @@ const Search = (props) => {
                                     <option value="3000000">&#8358; 3 Million</option>
                                     <option value="5000000">&#8358; 5 Million</option>
                                     <option value="10000000">&#8358; 10 Million</option>
+                                    <option value="100000000">&#8358; 100 Million</option>
+                                    <option value="200000000">&#8358; 200 Million</option>
+                                    <option value="500000000">&#8358; 500 Million</option>
+                                    <option value="1000000000">&#8358; 1 Billion</option>
                                 </Select>
                             </FormControl>
                             

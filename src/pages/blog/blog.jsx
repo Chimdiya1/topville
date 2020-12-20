@@ -20,13 +20,13 @@ const Blog = ({ match, history }) => {
             <Hero text="Blog" /> 
             <SimpleGrid minChildWidth="300px" paddingY='50px' spacing="40px" m='auto' justifyContent='space-between' width={['90%', '80%', null]}>
                 {
-                    currentBlogs.map(({ id, image, content, date, title }) => (
+                    currentBlogs.map(({ id, image, text, timestamp, title }) => (
                         <div
                             className="link"
                             key={id}
                             onClick={() => history.push(`${match.path}/${id}`)}
                         >                            
-                            <BlogCard date={date} img={image} text={content} heading={title}/>
+                            <BlogCard date={timestamp} image={image} text={text} heading={title}/>
                         </div>
                     ))
                 }              

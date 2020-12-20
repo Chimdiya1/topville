@@ -5,7 +5,7 @@ import {
     Box,
     Heading,
     Divider,
-    Skeleton,
+    Spinner,
     Image,
     Link,
     Text,
@@ -22,28 +22,52 @@ const BlogPage = ({ match, history }) => {
     const {
         image,
         title,
-        date,
-        content
+        timestamp,
+        text
     } = item[0] || {}
-
+    const toDateTime = (secs) => {
+        var t = new Date(1970, 0, 1); // Epoch
+        t.setSeconds(secs);
+        return t;
+    }
+    
   if (item.length===0)  {
-    return <Skeleton/>
+      return (
+        <Flex  flexDir='column'>
+            <Box height='80px' w='100%' backgroundColor='black' />
+            <Flex height='300px' alignItems='center' justifyContent='center'>
+                <Spinner />
+            </Flex>
+        </Flex>
+    )
   }
   return (
     <Flex flexDir='column'>
         <Box height='80px' w='100%' backgroundColor='black'/>
           <Flex width={['100%', null, '80%', null, '60%']} flexDir='column' mx='auto' alignItems='center' >
-              <Image boxSize={['100%', null, null, '80%']} src={image} alt="Blog Image" />
+              <Flex
+                  background={`linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url(${image})`}
+                    backgroundPosition="center"
+                    backgroundRepeat="no-repeat"
+                    backgroundSize="cover"
+                    height='30vh'
+                    align='center'
+                    justify='center'
+                    direction='column'
+                    width='100%'
+                >
+                   
+              </Flex> 
               <Flex padding={['1rem',null]} w={['100%', null, null, '80%']} flexDir='column' alignItems='baseline' textAlign='lefts'>
                 <Heading mt="24px" mb='12px' as='h2' fontSize={['24px','28px',null,'32px']} >
                       {title}
                 </Heading> 
                 <Heading mb='24px' as='h6' fontSize='16px' color='gray.400' fontWeight='300'>
-                    {date}
+                    {toDateTime(timestamp.seconds).toDateString()}
                 </Heading>
                 <Divider />
-                <Text my='24px' textAlign='justify' lineHeight='33px'>
-                    {content} 
+                <Text my='20px' lineHeight="1.5rem" textAlign="justify" dangerouslySetInnerHTML={{ __html: text }} textAlign='justify'>
+                    
                 </Text>
                 <Flex my='24px' w='100%' alignItems='flex-start'>
                 <Link as={rrdLink} to='/blog'>                    

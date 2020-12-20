@@ -30,7 +30,7 @@ const Header = () => {
 					alignItems="center"
 					justifyContent="space-between"
 				>
-					<Box flex={{ base: "1", md: "0.2", lg: "0.5", xl: "0.8" }}>
+					<Box flex={{ base: "0.2", md: "0.2", lg: "0.5", xl: "0.8" }}>
 						<Link
 							href="/"
 							_hover={{ textDecoration: "none" }}
@@ -134,10 +134,11 @@ const Header = () => {
 						onClick={openNavbar}
 						cursor="pointer"
 						d={{ base: "block", md: "none" }}
+						
 					>
-						<Box w={8} h="3px" backgroundColor="white" mb={2} />
-						<Box w={8} h="3px" backgroundColor="white" mb={2} />
-						<Box w={8} h="3px" backgroundColor="white" mb={2} />
+						<Box d={mobileNavOpen ? 'none' : 'block'} w={8} h="3px" backgroundColor="white" mb={2} />
+						<Box d={mobileNavOpen ? 'none' : 'block'} w={8} h="3px" backgroundColor="white" mb={2} />
+						<Box d={mobileNavOpen ? 'none' : 'block'} w={8} h="3px" backgroundColor="white" mb={2} />
 					</Box>
                 </Flex>
             </Container>

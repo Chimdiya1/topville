@@ -10,6 +10,7 @@ import {
 import { firestore,storage } from '../../firebase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarker } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
@@ -37,7 +38,7 @@ const AdminCard = ({ listing }) => {
         images.forEach((img) => storage.refFromURL(img).delete())
     };
     return ( 
-            <Flex _hover={{ bg: "gray.300", transform: 'scale(0.95)' }} transition='all ease-in-out 0.3s' flexDir='column' alignItems='flex-start' justifyContent='space-between' bg="gray.100" m='auto' w={['280px', '300px']} height="auto" >
+            <Flex _hover={{ bg: "gray.300", transform: 'scale(0.95)' }} transition='all ease-in-out 0.3s' flexDir='column' alignItems='flex-start' justifyContent='space-between' bg="gray.100" m='auto' w={['90%',null,'300px']} height="auto" >
                 <div className="list-item_image"
                     style={{
                         backgroundImage: `url(${listing.images[0]})`,
@@ -84,10 +85,15 @@ const AdminCard = ({ listing }) => {
                     <Box color="gray.500">
                         <FontAwesomeIcon style={{marginRight:'5px'}} color="green" icon={faMapMarker} /> {listing.location}
                     </Box>
-                </Box>
+            </Box>
+            <Flex w='100%' justifyContent='space-around' mb='1rem'>
+                <Button as={Link} to={`/edit/${listing.id}`} mx='auto' alignSelf='center' colorScheme='teal'>
+                    Edit
+                </Button>
                 <Button onClick={()=>deleteDocument(listing.id,listing.images)} mx='auto' alignSelf='center' colorScheme='red'>
                     Delete
                 </Button>
+            </Flex>
             </Flex>               
      );
 }

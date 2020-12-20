@@ -41,7 +41,7 @@ export const convertCollectionSnapshotToMap = (collections) => {
       purpose,
       bedrooms,
       bathrooms,
-      video,
+      videoLink,
       cars,
     } = doc.data();
     return {
@@ -56,8 +56,22 @@ export const convertCollectionSnapshotToMap = (collections) => {
       purpose,
       bedrooms,
       bathrooms,
-      video,
+      videoLink,
       cars,
+    };
+  });
+  return transformedCollection;
+};
+
+export const convertBlogSnapshotToMap = (collections) => {
+  const transformedCollection = collections.docs.map((doc) => {
+    const { title, text, timestamp, image } = doc.data();
+    return {
+      id: doc.id,
+      title,
+      text,
+      timestamp,
+      image,
     };
   });
   return transformedCollection;

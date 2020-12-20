@@ -36,11 +36,12 @@ const Listings = ({ match, history }) => {
                 backgroundPosition="center"
                 backgroundRepeat="no-repeat"
                 backgroundSize="cover"
-                height='100vh'
+                height={['110vh','100vh']}
                 align='center'
                 justify='center'
                 direction='column'
             >
+                
                 <Search/>
             </Flex>  
             <Heading mt={'24px'} textAlign='center' >

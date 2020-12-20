@@ -9,15 +9,16 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
       position="fixed"
       zIndex="10"
       top="0"
-      left="0"
+      right="0"
       height="100vh"
-      width="100%"
-      backgroundColor="white"
+      width="70%"
+      backgroundColor="rgba(255, 255, 255, 0.8)"
       d={mobileNavOpen ? 'block' : 'none'}
+      // transition=".3s ease-out"
     >
       <Container>
-        <Flex mb="3rem" justify="space-between" align="center" mt={6}>
-          <Link
+        <Flex h="41px" mb="3rem" justify="flex-end" align="center" mt={6}>
+          {/* <Link
             onClick={removeNavbarHandler}
             as={rrdLink}
             to="/"
@@ -30,7 +31,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
               alt="Logo"
               src="https://res.cloudinary.com/djksghat4/image/upload/v1606868551/chakra/brand_logo.png"
             />
-          </Link>
+          </Link> */}
           <Box
             position="relative"
             onClick={removeNavbarHandler}
@@ -58,13 +59,14 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
         <Flex
           fontFamily="inter"
           alignItems="center"
-          justifyContent="space-between"
+          justifyContent="space-around"
           flexDir="column"
           height="60vh"
+          fontSize="1.5rem"
         >
           <Link
             onClick={removeNavbarHandler}
-            color="gray.500"
+            color="gray.700"
             as={rrdLink}
             to="/listings"
             _hover={{ textDecoration: 'none' }}
@@ -78,7 +80,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
           </Link>
           {/* <Link
             onClick={removeNavbarHandler}
-            color="gray.500"
+            color="gray.700"
             as={rrdLink}
             to="/about"
             _hover={{ textDecoration: 'none' }}
@@ -92,7 +94,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
           </Link> */}
           <Link
             onClick={removeNavbarHandler}
-            color="gray.500"
+            color="gray.700"
             as={rrdLink}
             to="/how-it-works"
             _hover={{ textDecoration: 'none' }}
@@ -106,7 +108,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
           </Link>
           <Link
             onClick={removeNavbarHandler}
-            color="gray.500"
+            color="gray.700"
             as={rrdLink}
             to="/contact"
             _hover={{ textDecoration: 'none' }}
@@ -120,7 +122,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
           </Link>
           {/* <Link
             onClick={removeNavbarHandler}
-            color="gray.500"
+            color="gray.700"
             as={rrdLink}
             to="/faq"
             _hover={{ textDecoration: 'none' }}
@@ -134,7 +136,7 @@ const MobileNav = ({ removeNavbarHandler, mobileNavOpen }) => {
           </Link> */}
           <Link
             onClick={removeNavbarHandler}
-            color="gray.500"
+            color="gray.700"
             as={rrdLink}
             to="/blog"
             _hover={{ textDecoration: 'none' }}

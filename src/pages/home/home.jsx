@@ -35,7 +35,7 @@ const Home = () => {
                     </Button>
                 </Link>
             </Flex>
-            <Why />
+            {/* <Why />
             <Flex
                 background= "linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('/assets/home.jpg')"
                 backgroundPosition="center"
@@ -94,7 +94,7 @@ const Home = () => {
                         CALL 09134931040
                     </Button>
                 </a>
-            </Flex>
+            </Flex> */}
         </div>
      );
 }

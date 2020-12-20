@@ -12,6 +12,8 @@ import ListingPage from './pages/listingPage/listingPage';
 import BlogPage from './pages/blogPage/blogPage';
 import Page404 from './pages/404/404';
 import AdminDashboard from './pages/adminDashboard/adminDashboard';
+import EditListing from './pages/editListing/editListing';
+import EditBlogPost from './pages/editBlogPost/editBlogPost';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
 import './App.css';
@@ -23,16 +25,23 @@ import {
   loadSearchResult,
 } from './redux/listings/listings.actions';
 import { loadBlogs } from './redux/blogs/blogs.actions';
-import { firestore, convertCollectionSnapshotToMap } from './firebase';
+import {
+  firestore,
+  convertCollectionSnapshotToMap,
+  convertBlogSnapshotToMap,
+} from './firebase';
 
 function App({ loadListings, loadSearchResult, loadBlogs }) {
   useEffect(() => {
     const collectionRef = firestore.collection('listings');
+    const blogsRef = firestore.collection('blogs');
     collectionRef.onSnapshot(async (snapshot) => {
       await loadListings(convertCollectionSnapshotToMap(snapshot));
       await loadSearchResult(convertCollectionSnapshotToMap(snapshot));
     });
-    loadBlogs(sampleBlogData);
+    blogsRef.onSnapshot(async (snapshot) => {
+      await loadBlogs(convertBlogSnapshotToMap(snapshot));
+    });
   }, []);
   return (
     <div className="App">
@@ -49,15 +58,10 @@ function App({ loadListings, loadSearchResult, loadBlogs }) {
         <Route exact path="/listings" component={Listings} />
         <Route exact path="/listings/:id" component={ListingPage} />
         <Route exact path="/admin" component={AdminDashboard} />
+        <Route exact path="/edit/:id" component={EditListing} />
+        <Route exact path="/editblog/:id" component={EditBlogPost} />
         <Route exact path="/404" component={Page404} />
         <Redirect to="404" />
-        {/* <Route exact path="/how-it-works" component={HowItWorks} />
-        <Route path="/listings" component={Listings} />
-        <Route exact path="/login" component={AdminLogin} />
-        <Route exact path="/indaboski" component={AdminPage} />
-        <Route exact path="/contact" component={Contact} />
-        <Route exact path="/404" component={Page404} />
-        <Redirect to="404" /> */}
       </Switch>
       <Footer />
     </div>
