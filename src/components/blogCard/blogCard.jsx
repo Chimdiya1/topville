@@ -14,7 +14,6 @@ const BlogCard = ({ image, heading, text, date }) => {
         t.setSeconds(secs);
         return t;
     }
-    console.log(toDateTime(date.seconds))
     let blogDate = toDateTime(date.seconds).toDateString()
     return ( 
             <Flex _hover={{ bg: "gray.300", transform:'scale(0.95)' }} transition='all ease-in-out 0.3s' flexDir='column' alignItems='flex-start'  justifyContent='space-between'  bg="white" m='auto' w={['280px','300px']} height="auto" >
@@ -33,11 +32,20 @@ const BlogCard = ({ image, heading, text, date }) => {
                     {heading}
                 </Heading>
                 <Text m='20px' my='0px' fontSize='12px' textAlign='left' color='gray.500'> {blogDate}</Text>
-                <Text m='20px' noOfLines={3} fontSize='14px' textAlign='left' color='gray.700'>
-                    <p  dangerouslySetInnerHTML={{ __html: text }}>
+                <p style={{
+                    margin: '20px',
+                    fontSize:'14px',
+                    textAlign: 'left',
+                    color:'#2D3748',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    WebkitDisplay: '-webkit-box',
+                    display: '-webkit-box',
+                    WebkitBoxOrient: 'vertical',
+                    WebkitLineClamp: '3'
+                }} dangerouslySetInnerHTML={{ __html: text }}>
                     
-                    </p>
-                </Text>
+                </p>
             </Flex>
      );
 }

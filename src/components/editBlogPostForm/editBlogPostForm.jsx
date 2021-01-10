@@ -22,7 +22,6 @@ import { useSelector } from 'react-redux'
 const EditBlogPostForm = ({id}) => {
     const blogs = useSelector(state => state.blogs.blogs)
     const item = blogs.filter(item => item.id === id)
-    console.log('-====>',item)
     
     const toast = useToast()
     const [title, setTitle] = useState(item[0].title);
@@ -52,7 +51,6 @@ const EditBlogPostForm = ({id}) => {
             },
             error => {
                 // Error function ...
-                console.log(error);
                 toast({
                 title: "an error occured",
                 description: "Please try again",
@@ -109,14 +107,21 @@ const EditBlogPostForm = ({id}) => {
                     .catch(function (error) {
                     toast({
                         title: "An error has occured",
-                        description: "An error ha occured, please try again",
+                        description: "An error has occured, please try again",
                         status: "error",
                         duration: 9000,
                         isClosable: true,
                     })
                 });    
             } catch (err) {
-                console.log(err)
+                // console.log(err)
+                toast({
+                        title: "An error has occured",
+                        description: "An error has occured, please try again",
+                        status: "error",
+                        duration: 9000,
+                        isClosable: true,
+                    })
             }
         }
         else {

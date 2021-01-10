@@ -61,7 +61,7 @@ const AddListing = () => {
       },
       error => {
         // Error function ...
-          console.log(error);
+        //   console.log(error);
           toast({
           title: "an error occured",
           description: "Please try again",
@@ -79,7 +79,7 @@ const AddListing = () => {
           .then(url => {
             let imageurl = [...images, url]
             setImages(imageurl)
-            console.log(images)
+            // console.log(images)
           });
           toast({
           title: "upload successful",
@@ -143,14 +143,21 @@ const AddListing = () => {
                     .catch(function (error) {
                     toast({
                         title: "An error has occured",
-                        description: "An error ha occured, please try again",
+                        description: "An error has occured, please try again",
                         status: "error",
                         duration: 9000,
                         isClosable: true,
                     })
                 });    
             } catch (err) {
-                console.log(err)
+                // console.log(err)
+                toast({
+                        title: "An error has occured",
+                        description: "An error has occured, please try again",
+                        status: "error",
+                        duration: 9000,
+                        isClosable: true,
+                    })
             }
         }
         else {

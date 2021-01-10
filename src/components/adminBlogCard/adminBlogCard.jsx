@@ -61,7 +61,7 @@ const AdminBlogCard = ({blog}) => {
                 </Heading>
                 {/* <Text m='20px' my='0px' fontSize='12px' textAlign='left' color='gray.500'> {toDateTime(date.seconds).toDateString()}</Text> */}
                 <Text m='20px' noOfLines={3} fontSize='14px' textAlign='left' color='gray.700'>
-                    <p  dangerouslySetInnerHTML={{ __html: text }}>                    
+                    <p  dangerouslySetInnerHTML={{ __html: blog.text }}>                    
                     </p>
                 </Text>
                  <Flex w='100%' justifyContent='space-around' mb='1rem'>

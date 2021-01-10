@@ -35,7 +35,6 @@ const Search = (props) => {
         event.preventDefault();
         const listings = props.Applistings.listings
         const {loadSearchResult} = props
-        console.log(listings)
         setIsLoading(true);
         const EmptyResultCheckAndLoadListing = (result) => {
             if (sortby === 'desc') {

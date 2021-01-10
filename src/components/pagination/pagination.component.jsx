@@ -29,7 +29,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     }
     return (
         <Flex marginX='auto' fontSize='40px' alignItems='center' width='100%' justifyContent='center'>
-            <FontAwesomeIcon  color='#48BB78' className='page-icon' onClick={() => move('prev')} icon={faAngleLeft} />
+            <FontAwesomeIcon cursor='pointer' color='#48BB78' className='page-icon' onClick={() => move('prev')} icon={faAngleLeft} />
             {
                 pageNumbers.map((number) => (
                     <Flex key={number}
@@ -41,6 +41,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
                         justifyContent='center'
                         bgColor='brand.primary'
                         color='white'
+                        cursor='pointer'
                         borderRadius='5px'
                         onClick={() => {
                             paginate(number)
@@ -50,7 +51,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
                     </Flex>
                 ))
             }
-            <FontAwesomeIcon fontSize='1.7rem' color='#48BB78' className='page-icon' onClick={() => move('next')} icon={faAngleRight} />
+            <FontAwesomeIcon cursor='pointer' fontSize='1.7rem' color='#48BB78' className='page-icon' onClick={() => move('next')} icon={faAngleRight} />
         </Flex>
     )
 }

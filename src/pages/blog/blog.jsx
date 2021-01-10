@@ -14,7 +14,6 @@ let text = 'Some vague text about how using our service helps people and some ot
 
 const Blog = ({ match, history }) => {
     const currentBlogs = useSelector(state => state.blogs.blogs)
-    console.log('===>',currentBlogs)
     return ( 
         <Box bg='gray.100' >
             <Hero text="Blog" /> 

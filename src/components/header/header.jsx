@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Link as rrdLink} from 'react-router-dom'
+import {Link as rrdLink, useLocation} from 'react-router-dom'
 import {
 	Box,
 	Image,
@@ -13,12 +13,17 @@ import Container from "../container";
 import MobileNav from "../mobileNav/mobileNav";
 
 const Header = () => {
+	const location = useLocation().pathname;
 	const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
 	const removeNavbarHandler = () => {
 		setMobileNavOpen(false);
 	};
 	const openNavbar = () => {
 		setMobileNavOpen(true);
+	};
+
+	const linkColor = (pathname) => {
+		return location === pathname ? 'white' : 'gray.400'
 	};
 	return (
 		<Box position="relative" zIndex={10}>
@@ -54,7 +59,7 @@ const Header = () => {
                         <Link
                             as={rrdLink}
                             to='/listings'
-							color="gray.400"
+							color={linkColor('/listings')}
 							_hover={{ textDecoration: "none" }}
 						>
 							<Text
@@ -78,7 +83,7 @@ const Header = () => {
 							</Text>
 						</Link> */}
 						<Link
-                            color="gray.400"
+                            color={linkColor('/how-it-works')}
                             as={rrdLink}
                             to='/how-it-works'
 							_hover={{ textDecoration: "none" }}
@@ -91,7 +96,7 @@ const Header = () => {
 							</Text>
 						</Link>
 						<Link
-                            color="gray.400"
+                            color={linkColor('/contact')}
                             as={rrdLink}
                             to='/contact'
 							_hover={{ textDecoration: "none" }}
@@ -117,7 +122,7 @@ const Header = () => {
 							</Text>
 						</Link> */}
 						<Link
-							color="gray.400"
+							color={linkColor('/blog')}
 							as={rrdLink}
                             to='/blog'
 							_hover={{ textDecoration: "none" }}

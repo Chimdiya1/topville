@@ -58,7 +58,7 @@ const EditListingForm = ({id}) => {
       },
       error => {
         // Error function ...
-          console.log(error);
+        //   console.log(error);
           toast({
           title: "an error occured",
           description: "Please try again",
@@ -147,7 +147,7 @@ const EditListingForm = ({id}) => {
                     })
                 });    
             } catch (err) {
-                console.log(err)
+                // console.log(err)
                 toast({
                         title: "An error has occured",
                         description: "An error ha occured, please try again",

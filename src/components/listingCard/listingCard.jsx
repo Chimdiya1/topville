@@ -17,7 +17,6 @@ function formatNumber(num) {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
   }
 const ListingCard = ({listing}) => {
-    console.log(listing)
     return ( 
         <a href="">
             <Flex _hover={{ bg: "gray.300", transform: 'scale(0.95)' }} transition='all ease-in-out 0.3s' flexDir='column' alignItems='flex-start' justifyContent='space-between' bg="white" m='auto' w={['90%',null,'300px']} height="auto" >
