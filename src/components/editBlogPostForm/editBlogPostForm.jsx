@@ -179,12 +179,11 @@ const EditBlogPostForm = ({id}) => {
                 </FormControl>  
                 <Progress hasStripe value={progress} />
                 <SimpleGrid minChildWidth="200px" paddingY='50px' spacing="20px" m='auto' justifyContent='space-between' width='100%' mb='16px'>
-                    <FormControl  isRequired> 
+                    <FormControl > 
                         <FormLabel>Image 1</FormLabel>
                         {item[0].image && <img alt='edit' src={item[0].image} />}
                         <Input
-                            isDisabled={progress !== 0}
-                            isRequired
+                            isDisabled={progress !== 0}                        
                             size="sm"
                             focusBorderColor="brand.primary"
                             type="file"
